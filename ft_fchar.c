@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_fchar.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lboukrou <lboukrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/11 17:18:12 by lboukrou          #+#    #+#             */
-/*   Updated: 2019/10/07 15:16:59 by lboukrou         ###   ########.fr       */
+/*   Created: 2018/04/10 23:55:26 by lboukrou          #+#    #+#             */
+/*   Updated: 2019/10/07 12:30:02 by lboukrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+/*
+**	returns 1 if int c found once in string line, else returns 0
+*/
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+int		ft_fchar(const char *line, int c)
 {
-	t_list	*list;
+	int		i;
 
-	list = *alst;
-	if (alst == NULL || del == NULL)
-		return ;
-	while (*alst)
+	i = 0;
+	while (line[i] != '\0')
 	{
-		del(list->content, list->content_size);
-		free(list);
-		list = list->next;
+		if (line[i] == c)
+			return (1);
+		i++;
 	}
-	(*alst) = NULL;
+	return (0);
 }
